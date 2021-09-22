@@ -12,7 +12,9 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import protocolsupport.api.ProtocolVersion;
 import protocolsupport.api.TranslationAPI;
+import protocolsupport.api.chat.ChatColor;
 import protocolsupport.api.chat.components.BaseComponent;
+import protocolsupport.api.chat.modifiers.Modifier;
 import protocolsupport.api.events.ItemStackWriteEvent;
 import protocolsupport.api.remapper.ItemRemapperControl;
 
@@ -60,7 +62,7 @@ public final class ProtocolSupportLegacyItem extends JavaPlugin implements Liste
         String translated = TranslationAPI.translate(event.getLocale(), translationKey);
         ItemMeta itemMeta = itemStack.getItemMeta();
         if (MainConfig.TRANSLATE_ITEM_NAME.getValue() && itemMeta != null && !itemMeta.hasDisplayName()) {
-            event.setForcedDisplayName(BaseComponent.fromMessage(translated));
+            event.setForcedDisplayName(BaseComponent.fromMessage(translated).withModifier(new Modifier().withRGBColor(ChatColor.WHITE)));
         }
 
         if (MainConfig.ADD_ITEM_LORE_ENABLED.getValue()) {
