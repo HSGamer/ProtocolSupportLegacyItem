@@ -1,6 +1,6 @@
 name: ProtocolSupportLegacyItem
 version: '${project.version}'
 main: me.hsgamer.protocolsupportlegacyitem.ProtocolSupportLegacyItem
-api-version: 1.17
+api-version: 1.13
 depend: [ ProtocolSupport ]
 authors: [ HSGamer ]
